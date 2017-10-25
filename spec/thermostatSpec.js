@@ -31,35 +31,35 @@ describe('Thermostat', function () {
       thermostat.down();
       expect(thermostat.temperature()).toEqual(19);
     })
-    it('throws an error when going below 10 degress', function () {
-      for (var i = 0; i < 10; i++) {
+    it('wont go below 10 degress', function () {
+      for (var i = 0; i < 11; i++) {
         thermostat.down();
       }
-      expect(function () { thermostat.down() }).toThrowError('Minimum temperature is 10')
+      expect(thermostat.temperature()).toEqual(10);
     })
   })
 
   describe('power saving mode', function() {
 
     it('prevents temperature going above 25 degrees when on', function() {
-      thermostat.powerSavingMode('on');
+      thermostat.turnPowerSavingModeOn();
       for (var i = 0; i < 5; i++) {
         thermostat.up();
       }
-      expect(function() { thermostat.up() }).toThrowError('Maximum temperature is 25 degrees')
+      expect(thermostat.temperature()).toEqual(25);
     })
     it('prevents temperature going above 32 degrees when off', function() {
-      thermostat.powerSavingMode('off');
+      thermostat.turnPowerSavingModeOff();
       for (var i = 0; i < 12; i++) {
         thermostat.up();
       }
-      expect(function() { thermostat.up() }).toThrowError('Maximum temperature is 32 degrees')
+      expect(thermostat.temperature()).toEqual(32);      
     })
     it('power saving mode is on by default', function() {
       for (var i = 0; i < 5; i++) {
         thermostat.up();
       }
-      expect(function () { thermostat.up() }).toThrowError('Maximum temperature is 25 degrees');
+      expect(thermostat.temperature()).toEqual(25);
     })
 
   })
@@ -83,11 +83,11 @@ describe('Thermostat', function () {
       expect(thermostat.energyUsage()).toEqual('low-usage');
     })
     it('returns medium-usage when temp < 25', function () {
-      thermostat.powerSavingMode('off');
+      thermostat.turnPowerSavingModeOff();
       expect(thermostat.energyUsage()).toEqual('medium-usage');
     })
     it('returns high-usage when temp > 25', function () {
-      thermostat.powerSavingMode('off');
+      thermostat.turnPowerSavingModeOff();
       for (var i = 0; i < 5; i++) {
         thermostat.up();
       }

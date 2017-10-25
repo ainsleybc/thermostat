@@ -2,31 +2,27 @@
 
 function Thermostat() {
   this._DEFAULT_TEMPERATURE = 20;
+  this._MINIMUM_TEMPERATURE = 10;
+  this._MEDIUM_USEAGE_THRESHOLD = 18;
+  this._PSM_ON_LIMIT = 25;
+  this._PSM_OFF_LIMIT = 32;
   this._temperature = this._DEFAULT_TEMPERATURE;
-  this._powerSavingModeLimit = 25;
+  this._powerSavingMode = true;
 }
 
 Thermostat.prototype = {
-  
-  powerSavingMode: function (mode) {
-    if (mode == 'on') {
-      this._powerSavingModeLimit = 25;
-    } else if (mode == 'off') {
-      this._powerSavingModeLimit = 32;
-    }
-  },
 
   temperature: function () {
     return this._temperature;
   },
-
-  up: function() {
-    if (this._temperature >= this._powerSavingModeLimit) throw new Error('Maximum temperature is '+this._powerSavingModeLimit+' degrees');
+  
+  up: function () {
+    if (this._isMaxTemperature() === true) return;
     this._temperature++;
   },
 
   down: function () {
-    if (this._temperature === 10) throw new Error('Minimum temperature is 10');
+    if (this._isMinimumTemperature()) return;
     this._temperature--;
   },
 
@@ -34,10 +30,34 @@ Thermostat.prototype = {
     this._temperature = this._DEFAULT_TEMPERATURE;
   },
 
+  turnPowerSavingModeOff: function (mode) {
+    this._powerSavingMode = false;
+  },
+
+  turnPowerSavingModeOn: function (mode) {
+    this._powerSavingMode = true;
+  },
+
+  isPowerSavingModeOn: function () {
+    return this._powerSavingMode;
+  },
+
+  _isMinimumTemperature: function () {
+    return this._temperature === this._MINIMUM_TEMPERATURE;
+  },
+
+  _isMaxTemperature: function () {
+    if (this.isPowerSavingModeOn()) {
+      return this._temperature === this._PSM_ON_LIMIT;
+    } else {
+      return this._temperature === this._PSM_OFF_LIMIT;
+    }
+  },
+
   energyUsage: function () {
-    if (this._temperature < 18) {
+    if (this._temperature < this._MEDIUM_USEAGE_THRESHOLD ){
       return 'low-usage';
-    } else if (this._temperature < 25) {
+    } else if (this._temperature < this._PSM_ON_LIMIT) {
       return 'medium-usage';
     } else {
       return 'high-usage';
