@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <link rel="stylesheet" href="/stylesheets/layout.css"> -->
+    <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates|Roboto" rel="stylesheet">
     <title>Thermostat</title>
   </head>
@@ -9,15 +9,19 @@
     <header></header>
     <p class="temperature"></p>
     <button type="button" class="up">+</button>
-    <button type="button" class="up">-</button>
+    <button type="button" class="down">-</button>
     <button type="button" class="reset">Reset</button>
     <p>Power Saving Mode</p>
-    <button type="button" class="power-saving-mode-on">On</button>
-    <button type="button" class="power-saving-mode-off">Off</button>
+    <button type="button" class="power-saving-mode"></button>
     <p>Energy Usage</p>
     
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
     
-    
-  <script src="src/thermostat.js"></script>
+    <script src="js/thermostat.js"></script>
+    <script src="js/index.js"></script>
+  
   </body>
 </html>
