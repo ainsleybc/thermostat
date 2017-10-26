@@ -3,17 +3,25 @@
   <head>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates|Roboto" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thermostat</title>
   </head>
   <body>
     <header></header>
-    <p class="temperature"></p>
-    <button type="button" class="up">+</button>
-    <button type="button" class="down">-</button>
-    <button type="button" class="reset">Reset</button>
-    <p>Power Saving Mode</p>
-    <button type="button" class="power-saving-mode"></button>
-    <p>Energy Usage</p>
+    <section class="fields">
+      <p class="temperature"></p>
+      <div class="all-buttons">
+        <div class="controls">
+          <button type="button" class="down">-</button>
+          <button type="button" class="up">+</button>
+        </div>
+        <div class="reset-and-psm">
+          <button type="button" class="reset">Reset</button>
+          <button type="button" class="power-saving-mode">h</button>
+        </div>
+      </div>
+    </section>
+
     
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"

@@ -4,6 +4,7 @@ var thermostat = new Thermostat();
 
 function updateTemperature() {
   $(".temperature").text(thermostat.temperature());
+  updateEnergyUsage();
 };
 
 updateTemperature();
@@ -28,8 +29,7 @@ $(".power-saving-mode").click(function () {
   updateTemperature();
 });
 
-
-
-// var powerSavingModeColour = $("body");
-
-// powerSavingModeColour.addClass("medium-energy-usage");
+function updateEnergyUsage() {
+  var classToRemove
+  $("body").removeClass().addClass(thermostat.energyUsage()).fadeIn('slow');
+};

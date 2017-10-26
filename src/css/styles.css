@@ -1,0 +1,87 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  padding: 5%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;  
+  transition: background 2s linear; 
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.fields {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.temperature {
+  font-size: 200px;
+  color: white;
+  letter-spacing: 0.02em;
+  margin: 0;
+  margin-bottom: 3%;
+}
+
+button {
+  background-color: transparent;
+  margin: 1%;
+  outline: none;
+  border: 3px solid white;
+  line-height: 100%;
+  font-size: 20px;
+  color: white;
+}
+
+.controls button {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.all-buttons button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.all-buttons button:active {
+  color: transparent;
+  background-color: white;
+  transform: translateY(1px);
+}
+
+.reset-and-psm button, .reset-and-psm div {
+  margin: 0;
+  margin-top: 2%;
+  width: 100px;
+  height: 70px;
+}
+
+.reset {
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;  
+}
+
+.power-saving-mode {
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
+}
+
+.low-usage {
+  background-color: rgb(102, 102, 236);
+  /* background: radial-gradient(circle,rgb(102, 102, 236), rgb(18, 18, 201));  */
+}
+
+.medium-usage {
+  background-color: rgb(0, 128, 0);
+  /* background: radial-gradient(circle, rgb(89, 206, 89), rgb(0, 128, 0)); */
+}
+
+.high-usage {
+  background-color: rgb(255, 9, 9);
+  /* background: radial-gradient(circle,rgb(243, 141, 57), rgb(255, 9, 9));    */
+}
