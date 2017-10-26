@@ -30,12 +30,8 @@ Thermostat.prototype = {
     this._temperature = this._DEFAULT_TEMPERATURE;
   },
 
-  turnPowerSavingModeOff: function (mode) {
-    this._powerSavingMode = false;
-  },
-
-  turnPowerSavingModeOn: function (mode) {
-    this._powerSavingMode = true;
+  togglePowerSavingMode: function () {
+    this._powerSavingMode = !this._powerSavingMode;
   },
 
   isPowerSavingModeOn: function () {

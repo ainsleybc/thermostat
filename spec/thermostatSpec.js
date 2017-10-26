@@ -42,21 +42,20 @@ describe('Thermostat', function () {
   describe('power saving mode', function() {
 
     it('prevents temperature going above 25 degrees when on', function() {
-      thermostat.turnPowerSavingModeOn();
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < 6; i++) {
         thermostat.up();
       }
       expect(thermostat.temperature()).toEqual(25);
     })
     it('prevents temperature going above 32 degrees when off', function() {
-      thermostat.turnPowerSavingModeOff();
+      thermostat.togglePowerSavingMode();
       for (var i = 0; i < 12; i++) {
         thermostat.up();
       }
       expect(thermostat.temperature()).toEqual(32);      
     })
     it('power saving mode is on by default', function() {
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < 6; i++) {
         thermostat.up();
       }
       expect(thermostat.temperature()).toEqual(25);
@@ -83,11 +82,11 @@ describe('Thermostat', function () {
       expect(thermostat.energyUsage()).toEqual('low-usage');
     })
     it('returns medium-usage when temp < 25', function () {
-      thermostat.turnPowerSavingModeOff();
+      thermostat.togglePowerSavingMode();
       expect(thermostat.energyUsage()).toEqual('medium-usage');
     })
     it('returns high-usage when temp > 25', function () {
-      thermostat.turnPowerSavingModeOff();
+      thermostat.togglePowerSavingMode();
       for (var i = 0; i < 5; i++) {
         thermostat.up();
       }
