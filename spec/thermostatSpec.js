@@ -51,7 +51,7 @@ describe('Thermostat', function () {
       thermostat.togglePowerSavingMode();
       for (var i = 0; i < 12; i++) {
         thermostat.up();
-      }
+      };
       expect(thermostat.temperature()).toEqual(32);      
     })
     it('power saving mode is on by default', function() {
@@ -60,6 +60,14 @@ describe('Thermostat', function () {
       }
       expect(thermostat.temperature()).toEqual(25);
     })
+    it('updates the temperature if it violates the limit', function () {
+      thermostat.togglePowerSavingMode();
+      for (var i = 0; i < 12; i++) {
+        thermostat.up();
+      };
+      thermostat.togglePowerSavingMode();
+      expect(thermostat.temperature()).toEqual(25);
+    });
 
   })
 
