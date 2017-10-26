@@ -95,7 +95,7 @@ describe('Thermostat', function () {
     })
     it('returns high-usage when temp > 25', function () {
       thermostat.togglePowerSavingMode();
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i <= 5; i++) {
         thermostat.up();
       }
       expect(thermostat.energyUsage()).toEqual('high-usage');
