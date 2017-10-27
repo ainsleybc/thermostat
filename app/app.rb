@@ -1,4 +1,5 @@
-require 'data_mapper'
+# require 'data_mapper'
+require 'sinatra/base'
 
 class ThermostatData < Sinatra::Base
 

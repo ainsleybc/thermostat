@@ -11,4 +11,7 @@ group :test do
   gem 'rake'
   gem 'rspec'
   gem 'rubocop'
+  gem 'simplecov'
+  gem 'simplecov-console'
+  gem 'rack-test'
 end
