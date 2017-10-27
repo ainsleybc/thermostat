@@ -23,16 +23,23 @@
           <button type="button" id="power-saving-mode" class="power-saving-mode"><div class="button-psm"><p>Economy</p></div></button>
         </div>
       </div>
-
-      <p>Current temperature: <span id="degrees"></span>°C, Outlook: <span id="description"></span></p>
+      <p>Weather for your area</p>
+      <select id="citySelect">
+        <option value="" disabled selected>Select your city...</option>
+        <option value="london">London</option>
+        <option value="bristol">Bristol</option>
+        <option value="manchester">Manchester</option>
+        <option value="edinburgh">Edinburgh</option>
+      </select>
+      <p class="hide-text" id="weather-forecast">Current temperature: <span id="degrees"></span>°C, Outlook: <span id="description"></span></p>
     </section>
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
-    
+
     <script src="js/thermostat.js"></script>
     <script src="js/index.js"></script>
-  
+
   </body>
 </html>

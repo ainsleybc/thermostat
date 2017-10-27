@@ -31,8 +31,12 @@ $(".reset").click(function () {
 $(".power-saving-mode").click(function () {
   thermostat.togglePowerSavingMode();
   updateTemperature();
-  $("#power-saving-mode").toggleClass('psm-on'); 
+  $("#power-saving-mode").toggleClass('psm-on');
 });
+
+$("#citySelect").on("change", function() {
+  getWeather($("#citySelect option:selected").val());
+})
 
 function updateEnergyUsage() {
   $("body").removeClass().addClass(thermostat.energyUsage()).fadeIn('slow');
@@ -50,11 +54,10 @@ function finishScroll() {
   }, 1000);
 }
 
-function getWeather() {
-  $.get("http://api.openweathermap.org/data/2.5/weather?q=london,UK&APPID=be452588d94a0810dfb29525e3393acd", function (weatherData) {
+function getWeather(city) {
+  $.get("http://api.openweathermap.org/data/2.5/weather?q="+city+",UK&APPID=be452588d94a0810dfb29525e3393acd", function (weatherData) {
     $('#degrees').text(Math.round(weatherData.main.temp) - 273);
     $('#description').text(weatherData.weather[0].description);
+    $('#weather-forecast').removeClass('hide-text');
   })
 }
-
-getWeather('london');
