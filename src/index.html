@@ -9,20 +9,23 @@
   <body>
     <header></header>
     <section class="fields">
-      <p class="temperature"></p>
+      <div id="temperature-wrapper">
+          <div id="temperature-box" class="normal-position">
+          </div>
+      </div>
       <div class="all-buttons">
         <div class="controls">
           <button type="button" class="down">-</button>
           <button type="button" class="up">+</button>
         </div>
         <div class="reset-and-psm">
-          <button type="button" class="reset">Reset</button>
-          <button type="button" class="power-saving-mode">h</button>
+          <button type="button" class="reset"><div class="button-reset"><p>Reset</p></div></button>
+          <button type="button" id="power-saving-mode" class="power-saving-mode"><div class="button-psm"><p>Economy</p></div></button>
         </div>
       </div>
-    </section>
 
-    
+      <p>Weather: </p>
+    </section>
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
