@@ -4,21 +4,28 @@ var thermostat = new Thermostat();
 
 function updateTemperature() {
   var temp = thermostat.temperature();
-  $("#temperature-box").html('<p>'+(temp+1)+'</p><p>'+(temp)+'</p><p>'+(temp-1)+'</p>');
+  var tempUp = function () {
+    if (thermostat.isMaxTemperature()) return temp;
+    return temp+1;
+  }();
+  var tempDown = function () {
+    if (thermostat.isMinTemperature()) return temp;
+    return temp-1;
+  }();
+  $("#temperature-box").html('<p>'+(tempUp)+'</p><p>'+(temp)+'</p><p>'+(tempDown)+'</p>');
   updateEnergyUsage();
 };
 
 updateTemperature();
 
 $(".up").click(function () {
-  // toggleRotation();
   $('#temperature-box').addClass('scroll-up');
   thermostat.up();
   finishScroll();
 });
 
 $(".down").click(function () {
-  // toggleRotation();
+  $('#temperature-box').addClass('scroll-down');
   thermostat.down();
   finishScroll();
 });
@@ -49,9 +56,9 @@ function toggleRotation() {
 function finishScroll() {
   setTimeout(function () {
     $('#temperature-box').removeClass('scroll-up');
+    $('#temperature-box').removeClass('scroll-down');    
     updateTemperature();
-    // toggleRotation();
-  }, 1000);
+  }, 500);
 }
 
 function getWeather(city) {

@@ -17,12 +17,12 @@ Thermostat.prototype = {
   },
   
   up: function () {
-    if (this._isMaxTemperature() === true) return;
+    if (this.isMaxTemperature() === true) return;
     this._temperature++;
   },
 
   down: function () {
-    if (this._isMinimumTemperature()) return;
+    if (this.isMinTemperature()) return;
     this._temperature--;
   },
 
@@ -39,11 +39,11 @@ Thermostat.prototype = {
     return this._powerSavingMode;
   },
 
-  _isMinimumTemperature: function () {
+  isMinTemperature: function () {
     return this._temperature === this._MINIMUM_TEMPERATURE;
   },
 
-  _isMaxTemperature: function () {
+  isMaxTemperature: function () {
     if (this.isPowerSavingModeOn()) {
       return this._temperature === this._PSM_ON_LIMIT;
     } else {
