@@ -13,7 +13,7 @@ require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 
-Capybara.app = ThermostatData
+# Capybara.app = ThermostatData
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

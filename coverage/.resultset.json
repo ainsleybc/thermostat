@@ -1,18 +1,8 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Ainsley/Projects/makers/thermostat/thermostat/spec/features/persisting_data_spec.rb": [
+      "/Users/lowthe01/projects/makers_academy/week_five/thermostat/spec/features/persisting_data_spec.rb": [
         1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null,
         1,
         1,
@@ -21,6 +11,7 @@
         1,
         null,
         null,
+        1,
         1,
         1,
         1,
@@ -29,6 +20,6 @@
         null
       ]
     },
-    "timestamp": 1509111958
+    "timestamp": 1509117564
   }
 }
