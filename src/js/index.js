@@ -50,6 +50,11 @@ function finishScroll() {
   }, 1000);
 }
 
-function getWeather(city) {
-  $.get('$.get("api.openweathermap.org/data/2.5/weather?"id='+city)
+function getWeather() {
+  $.get("http://api.openweathermap.org/data/2.5/weather?q=london,UK&APPID=be452588d94a0810dfb29525e3393acd", function (weatherData) {
+    $('#degrees').text(Math.round(weatherData.main.temp) - 273);
+    $('#description').text(weatherData.weather[0].description);
+  })
 }
+
+getWeather('london');
